@@ -14,6 +14,7 @@ public class ARTapToPlaceObject : MonoBehaviour
     private bool placementPoseIsValid = false;
 
     public GameObject objectToPlace;
+    private List<GameObject> createdObjects;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,11 +31,21 @@ public class ARTapToPlaceObject : MonoBehaviour
         {
             PlaceObject();
         }
+        // if (placementPoseIsValid && Input.touchCount == 2 && Input.GetTouch(0).phase == TouchPhase.Began)
+        // {
+        //     DeleteObject();
+        // }
     }
 
     private void PlaceObject() 
     {
-        Instantiate(objectToPlace, PlacementPose.position, PlacementPose.rotation);
+        GameObject created = Instantiate(objectToPlace, PlacementPose.position, PlacementPose.rotation);
+        createdObjects.Add(created);
+    }
+
+    private void DeleteObject() 
+    {
+        Destroy(createdObjects[createdObjects.Count - 1]);
     }
 
     private void UpdatePlacementPose() 

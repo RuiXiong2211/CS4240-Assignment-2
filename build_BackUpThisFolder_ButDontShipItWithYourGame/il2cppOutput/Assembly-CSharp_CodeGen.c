@@ -50,13 +50,15 @@ extern void ARTapToPlaceObject_Start_m4A8A22AA04062DE0229C41BC767914F2C04F3020 (
 extern void ARTapToPlaceObject_Update_m9B0A45DCE03CA35CFA8CF6CAB12F0369A1C1BAF4 (void);
 // 0x00000013 System.Void ARTapToPlaceObject::PlaceObject()
 extern void ARTapToPlaceObject_PlaceObject_mCECD0707C6789550497BD4079C19763FB030A1B8 (void);
-// 0x00000014 System.Void ARTapToPlaceObject::UpdatePlacementPose()
+// 0x00000014 System.Void ARTapToPlaceObject::DeleteObject()
+extern void ARTapToPlaceObject_DeleteObject_mE9BC123C2E255671FC958EF4932725F4148BEF34 (void);
+// 0x00000015 System.Void ARTapToPlaceObject::UpdatePlacementPose()
 extern void ARTapToPlaceObject_UpdatePlacementPose_m6CB9E056EC5A93F3CB21D9E43FE419B4B67F2230 (void);
-// 0x00000015 System.Void ARTapToPlaceObject::UpdatePlacementIndicator()
+// 0x00000016 System.Void ARTapToPlaceObject::UpdatePlacementIndicator()
 extern void ARTapToPlaceObject_UpdatePlacementIndicator_m64AB22A985ED4DC7395D108AC7700C0B2E1D0E57 (void);
-// 0x00000016 System.Void ARTapToPlaceObject::.ctor()
+// 0x00000017 System.Void ARTapToPlaceObject::.ctor()
 extern void ARTapToPlaceObject__ctor_m835E4B900ABF4C300EE8938022D18FA3FDD16884 (void);
-static Il2CppMethodPointer s_methodPointers[22] = 
+static Il2CppMethodPointer s_methodPointers[23] = 
 {
 	AnchorCreator_get_AnchorPrefab_mBBAF7805E9D9F8D79408EE642D153BC76306B25A,
 	AnchorCreator_set_AnchorPrefab_m53CC9CC3022C713826B44536B48B462C8A1FACFF,
@@ -77,11 +79,12 @@ static Il2CppMethodPointer s_methodPointers[22] =
 	ARTapToPlaceObject_Start_m4A8A22AA04062DE0229C41BC767914F2C04F3020,
 	ARTapToPlaceObject_Update_m9B0A45DCE03CA35CFA8CF6CAB12F0369A1C1BAF4,
 	ARTapToPlaceObject_PlaceObject_mCECD0707C6789550497BD4079C19763FB030A1B8,
+	ARTapToPlaceObject_DeleteObject_mE9BC123C2E255671FC958EF4932725F4148BEF34,
 	ARTapToPlaceObject_UpdatePlacementPose_m6CB9E056EC5A93F3CB21D9E43FE419B4B67F2230,
 	ARTapToPlaceObject_UpdatePlacementIndicator_m64AB22A985ED4DC7395D108AC7700C0B2E1D0E57,
 	ARTapToPlaceObject__ctor_m835E4B900ABF4C300EE8938022D18FA3FDD16884,
 };
-static const int32_t s_InvokerIndices[22] = 
+static const int32_t s_InvokerIndices[23] = 
 {
 	5104,
 	4148,
@@ -105,12 +108,13 @@ static const int32_t s_InvokerIndices[22] =
 	5199,
 	5199,
 	5199,
+	5199,
 };
 IL2CPP_EXTERN_C const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule;
 const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule = 
 {
 	"Assembly-CSharp.dll",
-	22,
+	23,
 	s_methodPointers,
 	0,
 	NULL,
