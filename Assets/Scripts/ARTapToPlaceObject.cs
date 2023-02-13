@@ -12,12 +12,14 @@ public class ARTapToPlaceObject : MonoBehaviour
     private Pose PlacementPose;
     private ARRaycastManager aRRaycastManager;
     private bool placementPoseIsValid = false;
-
+    Camera arCam;
     public GameObject objectToPlace;
     private List<GameObject> createdObjects;
+    
     // Start is called before the first frame update
     void Start()
     {
+        arCam = GameObject.Find("AR Camera").GetComponent<Camera>();
         aRRaycastManager = FindObjectOfType<ARRaycastManager>();
     }
 
@@ -50,11 +52,20 @@ public class ARTapToPlaceObject : MonoBehaviour
 
     private void UpdatePlacementPose() 
     {
-        var screenCenter = Camera.current.ViewportToScreenPoint(new Vector3(0.5f, 0.5f));
+        //var screenCenter = Camera.current.ViewportToScreenPoint(new Vector3(0.5f, 0.5f));
+        var screenCenter = arCam.ViewportToScreenPoint(new Vector3(0.5f, 0.5f));
         var hits = new List<ARRaycastHit>();
         aRRaycastManager.Raycast(screenCenter, hits, TrackableType.Planes);
-
-        placementPoseIsValid = hits.Count > 0;
+        RaycastHit hit;
+        bool hitObject = false;
+        //Ray ray = arCam.ScreenPointToRay(Input.GetTouch(0).position);
+        Ray ray = arCam.ScreenPointToRay(screenCenter);
+        if (Physics.Raycast(ray, out hit)) {
+            if (hit.collider.gameObject.tag == "Spawnable") {
+                hitObject = true;
+            }
+        }
+        placementPoseIsValid = hits.Count > 0 && !hitObject;
         if (placementPoseIsValid) 
         {
             PlacementPose = hits[0].pose;

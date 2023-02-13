@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 4063652503409090}
   - component: {fileID: 33900468784748544}
   - component: {fileID: 23911326006527048}
+  - component: {fileID: 8200408035461169045}
   m_Layer: 0
   m_Name: Ship_flat_prefab
-  m_TagString: Untagged
+  m_TagString: Spawnable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -83,3 +84,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &8200408035461169045
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1663737655468832}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.002499, y: 5.499985, z: 3.5264893}
+  m_Center: {x: 0.0000014901161, y: 0.000016450884, z: -0.000009477139}
