@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
 using System;
+using UnityEngine.EventSystems; 
 
 public class ARTapToPlaceObject : MonoBehaviour
 {
@@ -30,19 +31,18 @@ public class ARTapToPlaceObject : MonoBehaviour
     {
         UpdatePlacementPose();
         UpdatePlacementIndicator();
-
-        if (placementPoseIsValid && Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+        if (!EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId)) // checks if it's not pressing a UI element (button).
         {
-            PlaceObject();
+            if (placementPoseIsValid && Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+            {
+                PlaceObject();
+            }
+            if (!isAdd && !placementPoseIsValid && Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+            {
+                DeleteObject();
+            }
         }
-        // if (placementPoseIsValid && Input.touchCount == 2 && Input.GetTouch(0).phase == TouchPhase.Began)
-        // {
-        //     DeleteObject();
-        // }
-        if (!isAdd && !placementPoseIsValid && Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
-        {
-            DeleteObject();
-        }
+        
     }
 
     private void PlaceObject() 
