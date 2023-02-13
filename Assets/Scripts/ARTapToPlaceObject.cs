@@ -13,8 +13,10 @@ public class ARTapToPlaceObject : MonoBehaviour
     private ARRaycastManager aRRaycastManager;
     private bool placementPoseIsValid = false;
     Camera arCam;
+    public bool isAdd;
     public GameObject objectToPlace;
     private List<GameObject> createdObjects;
+    private GameObject objDetected;
     
     // Start is called before the first frame update
     void Start()
@@ -37,6 +39,10 @@ public class ARTapToPlaceObject : MonoBehaviour
         // {
         //     DeleteObject();
         // }
+        if (!isAdd && !placementPoseIsValid && Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+        {
+            DeleteObject();
+        }
     }
 
     private void PlaceObject() 
@@ -47,7 +53,7 @@ public class ARTapToPlaceObject : MonoBehaviour
 
     private void DeleteObject() 
     {
-        Destroy(createdObjects[createdObjects.Count - 1]);
+        Destroy(objDetected);
     }
 
     private void UpdatePlacementPose() 
@@ -58,11 +64,14 @@ public class ARTapToPlaceObject : MonoBehaviour
         aRRaycastManager.Raycast(screenCenter, hits, TrackableType.Planes);
         RaycastHit hit;
         bool hitObject = false;
+        isAdd = true;
         //Ray ray = arCam.ScreenPointToRay(Input.GetTouch(0).position);
         Ray ray = arCam.ScreenPointToRay(screenCenter);
         if (Physics.Raycast(ray, out hit)) {
             if (hit.collider.gameObject.tag == "Spawnable") {
+                objDetected = hit.transform.gameObject;
                 hitObject = true;
+                isAdd = false;
             }
         }
         placementPoseIsValid = hits.Count > 0 && !hitObject;
