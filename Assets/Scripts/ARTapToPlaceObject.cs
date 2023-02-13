@@ -39,7 +39,7 @@ public class ARTapToPlaceObject : MonoBehaviour
 
     private void PlaceObject() 
     {
-        GameObject created = Instantiate(objectToPlace, PlacementPose.position, PlacementPose.rotation);
+        GameObject created = Instantiate(objectToPlace, PlacementPose.position, objectToPlace.transform.rotation);
         createdObjects.Add(created);
     }
 
