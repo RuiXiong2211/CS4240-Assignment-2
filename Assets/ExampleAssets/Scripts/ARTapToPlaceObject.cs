@@ -14,7 +14,7 @@ public class ARTapToPlaceObject : MonoBehaviour
     private ARRaycastManager aRRaycastManager;
     private bool placementPoseIsValid = false;
     Camera arCam;
-    public bool isAdd;
+    private bool isAdd; // Keeps track if the next tap will Add or Delete element.
     public GameObject objectToPlace;
     private List<GameObject> createdObjects;
     private GameObject objDetected;

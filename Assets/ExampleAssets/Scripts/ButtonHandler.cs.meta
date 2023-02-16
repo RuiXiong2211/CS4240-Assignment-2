@@ -3,7 +3,11 @@ guid: 410024a223fff75479040174287bd556
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - placeTable: {fileID: 8256341331331680274, guid: 106535da91ae3a3448be0b719857ab0f,
+      type: 3}
+  - placeChair: {instanceID: 0}
+  - placeBed: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

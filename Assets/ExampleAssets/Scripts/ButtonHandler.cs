@@ -6,11 +6,13 @@ using UnityEngine.XR.ARSubsystems;
 using System;
 
 public class ButtonHandler : MonoBehaviour {
-    GameObject interaction;
-    ARTapToPlaceObject scriptARTap;    
+
     public GameObject placeTable;
     public GameObject placeChair;
-    GameObject andyGO;
+    public GameObject placeBed;
+
+    private GameObject interaction;
+    private ARTapToPlaceObject scriptARTap;
 
     public void ChangeObjectTypeToTable()
     {
@@ -26,11 +28,10 @@ public class ButtonHandler : MonoBehaviour {
         scriptARTap.objectToPlace = placeChair;
     }
 
-    public void ChangeObjectTypeToAndy()
+    public void ChangeObjectTypeToBed()
     {
-        // controllerGO = GameObject.Find("Controller");
-        // scriptMyHelloAR = controllerGO.GetComponent<MyHelloAR>();
-        // andyGO = GameObject.Find("AndyGreen");
-        // scriptMyHelloAR.AndyPlanePrefab = andyGO;
+        interaction = GameObject.Find("Interaction");
+        scriptARTap = interaction.GetComponent<ARTapToPlaceObject>();
+        scriptARTap.objectToPlace = placeBed;
     }
 }
